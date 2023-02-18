@@ -18,6 +18,6 @@ runs:
         
         "${{github.workspace}}/ossutil" >> $env:GITHUB_PATH
         Write-Output $env:GITHUB_PATH
-        ossutil64 config -e oss-cn-hangzhou.aliyuncs.com -i ${{ inputs.aliyun-access-key }} -k ${{ inputs.aliyun-access-secret }}
-        ossutil64 ls
+        ${{github.workspace}}/ossutil/ossutil64 config -e oss-cn-hangzhou.aliyuncs.com -i ${{ inputs.aliyun-access-key }} -k ${{ inputs.aliyun-access-secret }}
+        ${{github.workspace}}/ossutil/ossutil64 ls
       shell: pwsh
