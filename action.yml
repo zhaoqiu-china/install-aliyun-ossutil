@@ -1,0 +1,15 @@
+name: 'get_ali_ossutil'
+runs:
+  using: 'composite'
+  steps:
+    - run: |
+        mkdir ${{github.workspace}}/ossutil
+        Invoke-WebRequest -URI https://gosspublic.alicdn.com/ossutil/1.7.14/ossutil64.zip -OutFile ${{github.workspace}}/ossutil/ossutil64.zip
+        cd ${{github.workspace}}/ossutil
+        7z e ossutil64.zip
+        
+        "${{github.workspace}}/ossutil" >> $env:GITHUB_PATH
+
+        ossutil64 config -e oss-cn-hangzhou.aliyuncs.com -i ${{ secrets.ALIYUN_ACCESS_KEY }} -k ${{ secrets.ALIYUN_ACCESS_SECRET }}
+        ossutil64 ls
+        shell: pwsh
