@@ -13,4 +13,4 @@ runs:
 
         ossutil64 config -e oss-cn-hangzhou.aliyuncs.com -i ${{ secrets.ALIYUN_ACCESS_KEY }} -k ${{ secrets.ALIYUN_ACCESS_SECRET }}
         ossutil64 ls
-        shell: pwsh
+      shell: pwsh
