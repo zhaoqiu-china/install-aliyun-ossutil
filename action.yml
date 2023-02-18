@@ -20,4 +20,4 @@ runs:
         # Write-Output $env:GITHUB_PATH
         # ossutil64 config -e oss-cn-hangzhou.aliyuncs.com -i ${{ inputs.aliyun-access-key }} -k ${{ inputs.aliyun-access-secret }}
         # ossutil64 ls
-      shell: bash
+      shell: pwsh
