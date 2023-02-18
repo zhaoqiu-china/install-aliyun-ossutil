@@ -11,13 +11,13 @@ runs:
   using: 'composite'
   steps:
     - run: |
-        mkdir ${{github.workspace}}/ossutil
-        Invoke-WebRequest -URI https://gosspublic.alicdn.com/ossutil/1.7.14/ossutil64.zip -OutFile ${{github.workspace}}/ossutil/ossutil64.zip
-        cd ${{github.workspace}}/ossutil
+        mkdir ./ossutil
+        Invoke-WebRequest -URI https://gosspublic.alicdn.com/ossutil/1.7.14/ossutil64.zip -OutFile ./ossutil/ossutil64.zip
+        cd ./ossutil
         7z e ossutil64.zip
         
-        "${{github.workspace}}/ossutil" >> $env:GITHUB_PATH
-        Write-Output $env:GITHUB_PATH
-        ossutil64 config -e oss-cn-hangzhou.aliyuncs.com -i ${{ inputs.aliyun-access-key }} -k ${{ inputs.aliyun-access-secret }}
-        ossutil64 ls
+        # "${{github.workspace}}/ossutil" >> $env:GITHUB_PATH
+        # Write-Output $env:GITHUB_PATH
+        # ossutil64 config -e oss-cn-hangzhou.aliyuncs.com -i ${{ inputs.aliyun-access-key }} -k ${{ inputs.aliyun-access-secret }}
+        # ossutil64 ls
       shell: bash
