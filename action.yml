@@ -1,4 +1,5 @@
-name: 'get_ali_ossutil'
+name: 'install aliyun ossutil'
+description: 'install aliyun ossutil by webrequest'
 runs:
   using: 'composite'
   steps:
