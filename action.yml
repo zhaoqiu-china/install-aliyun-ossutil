@@ -1,5 +1,5 @@
 name: 'install aliyun ossutil'
-description: 'install aliyun ossutil by webrequest'
+description: 'install aliyun ossutil by webrequest. '
 inputs:
   aliyun-access-key:
     description: 'ALIYUN_ACCESS_KEY'
@@ -7,6 +7,7 @@ inputs:
   aliyun-access-secret:
     description: 'ALIYUN_ACCESS_SECRET'
     required: true
+  
 runs:
   using: 'composite'
   steps:
@@ -17,7 +18,7 @@ runs:
         7z e ossutil64.zip
         
         "${{github.workspace}}/ossutil" >> $env:GITHUB_PATH
-        Write-Output $env:GITHUB_PATH
         ${{github.workspace}}/ossutil/ossutil64 config -e oss-cn-hangzhou.aliyuncs.com -i ${{ inputs.aliyun-access-key }} -k ${{ inputs.aliyun-access-secret }}
+        Write-Output "Current account information"
         ${{github.workspace}}/ossutil/ossutil64 ls
       shell: pwsh
