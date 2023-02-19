@@ -22,3 +22,7 @@ runs:
         Write-Output "Current account information"
         ${{github.workspace}}/ossutil/ossutil64 ls
       shell: pwsh
+
+branding:
+  icon: 'box'
+  color: 'gray-dark'
